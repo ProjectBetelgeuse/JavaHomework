@@ -16,4 +16,8 @@ public class GuessGame {
     	System.out.println("whether the right answer is higher or lower");
     	System.out.print("than your guess.");
     }
+
+	public static void game(){
+		
+	}
 }
