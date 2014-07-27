@@ -1,6 +1,6 @@
 import java.util.*;
 public class GuessGame {
-public static int MaxNum = 100;
+public static int MaxNum = 10;
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
     	intro();
@@ -20,19 +20,30 @@ public static int MaxNum = 100;
     }
 
 	public static void game(){
-		Scanner in=new Scanner(System.in);
+		Scanner input=new Scanner(System.in);
 		int RNum=(int)(Math.random()*MaxNum);
+		int counter = 1;
 		System.out.println("I'm thinking of a number between 1 and "+MaxNum+"...");
 		for (int a = 0;a<MaxNum/2;a++){
 			System.out.print("your guess?");
-			int UserNum=in.nextInt();
+			int UserNum=input.nextInt();
 			if (UserNum<RNum){
 				System.out.println("It's higher");
+				counter++;
+				continue;
 			}if (UserNum>RNum){
 				System.out.println("It's lower");
+				counter++;
+				continue;
 			}else{
-				System.out.println("you got it right in "+"guesses");
+				System.out.println("you got it right in "+counter+" guesses");
+				break;
 			}
 		}
+		System.out.println("Do you want to play again?");
+		String YN = input.next();
+	}
+	public static void count(){
+		
 	}
 }
