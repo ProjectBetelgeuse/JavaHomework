@@ -23,13 +23,14 @@ private static Scanner input;
 	public static int game(){
 		input = new Scanner(System.in);
 		int RNum=(int)(Math.random()*MaxNum)+1;
+		int UserNum = 0;
 		System.out.println(RNum);
 		int counter=1;
 		int totalGames=0;
 		System.out.println("I'm thinking of a number between 1 and "+MaxNum+"...");
-		for (int a = 0;a<MaxNum/2;a++){
+		while (UserNum != RNum){
 			System.out.print("your guess?");
-			int UserNum=input.nextInt();
+			UserNum=input.nextInt();
 			if (UserNum<RNum){
 				System.out.println("It's higher");
 				counter++;
@@ -60,6 +61,7 @@ private static Scanner input;
 		}if(c=='N'){
 			count();
 		}
+		return totalGames;
 	}
 	public static void count(){
 		System.out.println("Overall results: ");
