@@ -20,9 +20,10 @@ private static Scanner input;
     	System.out.println();
     }
 
-	public static void game(){
+	public static int game(){
 		input = new Scanner(System.in);
-		int RNum=(int)(Math.random()*MaxNum);
+		int RNum=(int)(Math.random()*MaxNum)+1;
+		System.out.println(RNum);
 		int counter=1;
 		int totalGames=0;
 		System.out.println("I'm thinking of a number between 1 and "+MaxNum+"...");
@@ -38,7 +39,11 @@ private static Scanner input;
 				counter++;
 				continue;
 			}else{
-				System.out.println("you got it right in "+counter+" guesses");
+				if(counter==1){
+					System.out.println("you got it right in "+counter+" guess");
+				}else{
+				    System.out.println("you got it right in "+counter+" guesses");
+				}
 				totalGames++;
 				break;
 			}
@@ -58,6 +63,9 @@ private static Scanner input;
 	}
 	public static void count(){
 		System.out.println("Overall results: ");
-		System.out.println("	total games = ");
+		System.out.println("	total games   = ");
+		System.out.println("	total guesses = ");
+		System.out.println("	guesses/game  = ");
+		System.out.println("	best game     = ");
 	}
 }
