@@ -1,11 +1,23 @@
 import java.util.*;
 public class GuessGame {
-public static int MaxNum = 10;
-private static Scanner input;
+public static final int MaxNum = 10;
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		Scanner input = new Scanner(System.in);
+		int userGuess=0;
+		int comPick=0;
+		int numGuesses=1;
+		int totalGuesses=0;
+		int numGames=0;
     	intro();
-    	game();
+    	String playAgain="";
+		do{
+    		game(input,userGuess,comPick,numGuesses,totalGuesses);
+    		System.out.println("Do you want to paly again?");
+    		playAgain=input.next().toLowerCase();
+    	}while(playAgain.charAt(0)=='y');
+		numGames++;
+		count(numGames,totalGuesses);
 	}
 	/*
 	 * the intro of the game
@@ -20,53 +32,34 @@ private static Scanner input;
     	System.out.println();
     }
 
-	public static int game(){
-		input = new Scanner(System.in);
-		int RNum=(int)(Math.random()*MaxNum)+1;
-		int UserNum = 0;
-		System.out.println(RNum);
-		int counter=1;
-		int totalGames=0;
+	public static void game(Scanner input,int userGuess,int comPick,int numGuesses,int totalGuesses){
+		Random RNum = new Random();
+		comPick=RNum.nextInt(MaxNum)+1;
+		System.out.println(comPick);//need to delete
 		System.out.println("I'm thinking of a number between 1 and "+MaxNum+"...");
-		while (UserNum != RNum){
-			System.out.print("your guess?");
-			UserNum=input.nextInt();
-			if (UserNum<RNum){
+		System.out.println("your guess? ");
+		userGuess= input.nextInt();
+		while (userGuess != comPick){
+			if (userGuess<comPick){
 				System.out.println("It's higher");
-				counter++;
-				continue;
-			}if (UserNum>RNum){
-				System.out.println("It's lower");
-				counter++;
-				continue;
-			}else{
-				if(counter==1){
-					System.out.println("you got it right in "+counter+" guess");
-				}else{
-				    System.out.println("you got it right in "+counter+" guesses");
-				}
-				totalGames++;
-				break;
 			}
+			else if(userGuess>comPick){
+				System.out.println("It's lower");
+				}
+			 numGuesses++;
+			 System.out.print("your guess? ");
+			 userGuess=input.nextInt();
+			}
+		if(numGuesses==1){
+			System.out.println("You got it right in "+numGuesses+" guess");
+		}else{
+		    System.out.println("You got it right in "+numGuesses+" guesses");
 		}
-		System.out.println("Do you want to play again?");
-		String YN=input.next();
-		char c=YN.charAt(0);
-		if(c=='y'){
-			game();
-		}if(c=='n'){
-			count();
-		}if(c=='Y'){
-			game();
-		}if(c=='N'){
-			count();
-		}
-		return totalGames;
 	}
-	public static void count(){
+	public static void count(int numGames,int totalGuesses){
 		System.out.println("Overall results: ");
-		System.out.println("	total games   = ");
-		System.out.println("	total guesses = ");
+		System.out.println("	total games   = "+numGames);
+		System.out.println("	total guesses = "+totalGuesses);
 		System.out.println("	guesses/game  = ");
 		System.out.println("	best game     = ");
 	}
