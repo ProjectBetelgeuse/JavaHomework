@@ -15,8 +15,8 @@ public static final int MaxNum = 10;
     		game(input,userGuess,comPick,numGuesses,totalGuesses);
     		System.out.println("Do you want to paly again?");
     		playAgain=input.next().toLowerCase();
+    		numGames++;
     	}while(playAgain.charAt(0)=='y');
-		numGames++;
 		count(numGames,totalGuesses);
 	}
 	/*
