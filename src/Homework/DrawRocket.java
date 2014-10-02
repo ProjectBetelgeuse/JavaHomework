@@ -5,11 +5,11 @@ public static final int size=5;
 	public static void main(String[] args) {
 		triangle();
 		line();
-		rightPart();
+		frontPart();
 		backPart();
 		line();
 		backPart();
-		rightPart();
+		frontPart();
 		line();
 		triangle();
 	 }
@@ -36,7 +36,7 @@ public static final int size=5;
 		}
 		System.out.println("+");
 	}
-	public static void rightPart(){
+	public static void frontPart(){
 		for(int x=1;x<=size;x++){
 			System.out.print("|");
 			for(int y=size-x;y>0;y--){
