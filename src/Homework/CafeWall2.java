@@ -14,7 +14,7 @@ public class CafeWall2 {
 	
 	public static DrawingPanel p = new DrawingPanel(650,400);
 	public static Graphics g = p.getGraphics();
-	public static final int mortar=2; //the mortar constants
+	public static final int MORTAR=2; //the mortar constants
 	
 	public static void main(String[] args) {
 		p.setBackground(Color.GRAY); //set the backGroud color to grey
@@ -51,7 +51,7 @@ public class CafeWall2 {
 	
 	//This is method draw a grid of box by use the "box" method
 	public static void grid(int x,int y,int pair, int size, int offset){
-		int realGap=size+mortar;
+		int realGap=size+MORTAR;
 		for(int b=0;b<pair;b++){
 			box(x,y+2*realGap*b,pair,size);
 			box(x+offset,y+realGap+(2*realGap)*b,pair,size);
