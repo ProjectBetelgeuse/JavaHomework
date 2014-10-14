@@ -4,7 +4,7 @@ import java.awt.*;
 
 public class CafeWall {
 	
-	public static DrawingPanel panel = new DrawingPanel(650,450);
+	public static DrawingPanel panel = new DrawingPanel(650,400);
 	public static Graphics g = panel.getGraphics();
 	
 	public static void main(String[] args) {
@@ -23,7 +23,7 @@ public class CafeWall {
 				Box(50*a+10,150+27*b,25);
 		}
 		}
-		//right up
+		//right up(400, 20) pair:2 size:35 offset:35
 		for (int a=0;a<2;a++){
 			for(int b=0;b<2;b++){
 				Box(70*a+400,20+74*b,35);
@@ -32,7 +32,7 @@ public class CafeWall {
 				Box(70*a+435,57+74*b,35);
 			}
 		}
-		//middle down
+		//middle down(250,200) pair:3 size:25 offset:10
 		for (int a=0;a<3;a++){
 			for(int b=0;b<3;b++){
 				Box(50*a+250,200+54*b,25);
@@ -40,8 +40,8 @@ public class CafeWall {
 			for(int b=0;b<3;b++){
 				Box(50*a+260,227+54*b,25);
 			}
-		}
-		//right down
+		}	
+		//right down(425,180) pair:5 size:20 offset:10
 		for (int a=0;a<5;a++){
 			for (int b=0;b<5;b++){
 				Box(40*a+425,180+44*b,20);
