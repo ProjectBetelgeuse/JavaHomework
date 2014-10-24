@@ -7,7 +7,7 @@
 * This program use for loop to print a Rocket.
 * You can change the Rocket by change the constant "size".
 */
-
+package Homework;
 public class DrawRocket {
    
    public static final int size=5;//You can change this number in order to change the whole size of this Rocket.

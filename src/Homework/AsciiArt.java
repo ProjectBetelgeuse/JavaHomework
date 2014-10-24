@@ -6,7 +6,7 @@
 *
 * This program drawing a heart in "*".
 */
-
+package Homework;
 public class AsciiArt {
    
    public static void main(String[] args) {

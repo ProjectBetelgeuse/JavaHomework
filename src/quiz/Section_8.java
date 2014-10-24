@@ -1,19 +1,22 @@
 package quiz;
-
+import java.util.*;
 public class Section_8 {
 
 	public static void main(String[] args) {
-		printTriangleType(6,6,6);
+		randomX();
 	}
-		public static void printTriangleType(int x, int y,int z){
-			if((x==y)&&(y==z)&&(z==x)){
-				System.out.println("equilateral");
-			}else if((x!=y)&&(y==z)){
-				System.out.println("isosceles");
-			}else if((x==z)&&(x!=y)&&(z!=y)){
-				System.out.println("isosceles");
-			}if((x!=y)&(y!=z)&(z!=x)){
-				System.out.println("scalene");
-			}
-		}
-}
+	public static void randomX(){
+		Random rand = new Random();
+		boolean hit16 = false;
+	    while(!hit16){
+	    	int randNum = rand.nextInt(15)+5;
+	    	hit16 = randNum>=16;
+	    	for(int i = 0;i<randNum;i++){
+	    		System.out.print("x");
+	    	}
+	    	System.out.println();
+
+	    }
+
+	    }
+	}
