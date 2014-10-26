@@ -7,16 +7,18 @@ public class GuessingGame {
 		intro();
 		String userInput="";
 		int totalGames = 0;
-		
+		int totalGuess = 0;
+		int guess = 0;
 		do{
-		game(input);
+		guess = game(input);
+		totalGuess += guess;
 		System.out.print("Do you want to play again? ");
 		userInput = input.next().toLowerCase();
 		System.out.println();
 		totalGames++;
 		}while(userInput.charAt(0)=='y');
 
-		count(totalGames);
+		count(totalGames,totalGuess);
 			
 	}
 	public static void intro(){
@@ -54,11 +56,12 @@ public class GuessingGame {
 		}
 		return guessCount;
 	}
-	public static void count(int totalGames){
+	public static void count(int totalGames,int totalGuess){
+		double ratio = (double)totalGuess/(double)totalGames;
 		System.out.println("Overall results: ");
 		System.out.println("	total games   = "+totalGames);
-		System.out.println("	total guesses = ");
-		System.out.println("	guesses/game  = ");
+		System.out.println("	total guesses = "+totalGuess);
+		System.out.printf("	guesses/game  = %.1f%n",ratio);
 		System.out.println("	best game     = ");
 	}
 	
