@@ -26,7 +26,6 @@ public class Names {
 			lineScan(line);
 		}
 	}
-	
 	public static void intro(){
 		System.out.println("This program allows you to search through the");
 		System.out.println("data from the Social Security Administration");
@@ -60,13 +59,12 @@ public class Names {
 		int preNum = lineBase.nextInt();
 		int pre = 0;
 		boolean hitMax = false;
-		int ycod = (int)(Math.round(num*0.5)+24);
 		g.setColor(Color.RED);
 		if(preNum==0){
 			g.drawString(name+" "+gender+" "+preNum, count*width, 525);
 			pre = 525;
 		}else{
-			g.drawString(name+" "+gender+" "+preNum,count*width,(int)(Math.round(preNum*0.5)+24));
+			g.drawString(name+" "+gender+" "+preNum, count*width, (int)(Math.round(preNum*0.5)+24));
 			pre = (int)(Math.round(preNum*0.5)+24);
 		}
 		while(lineBase.hasNextInt()&&!hitMax){
@@ -76,9 +74,9 @@ public class Names {
 				g.drawLine(count*width, pre, (count+1)*width, 525);
 				pre = 525;
 			}else{
-				g.drawString(name+" "+gender+" "+num,(count+1)*width,ycod);
-				g.drawLine(count*width, pre, (count+1)*width, ycod);
-				pre = ycod;
+				g.drawString(name+" "+gender+" "+num, (count+1)*width, (int) (Math.round(num*0.5)+24));
+				g.drawLine(count*width, pre, (count+1)*width, (int)(Math.round(num*0.5)+24));
+				pre = (int)(Math.round(num*0.5)+24);
 			}
 			preNum=num;
 			count++;
