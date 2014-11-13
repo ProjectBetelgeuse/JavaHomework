@@ -28,9 +28,9 @@ public class Names {
 	}
 	public static void intro(){
 		System.out.println("This program allows you to search through the");
-		System.out.println("data from the Social Scurity Administration");
+		System.out.println("data from the Social Security Administration");
 		System.out.println("to see how popular a particular name has been");
-		System.out.println("since 1920. ");
+		System.out.println("since "+years+".");
 		System.out.println();
 	}
 	
@@ -58,6 +58,7 @@ public class Names {
 		int count = 0;
 		int preNum = lineBase.nextInt();
 		int pre = 0;
+		boolean hitMax = false;
 		g.setColor(Color.RED);
 		if(preNum==0){
 			g.drawString(name+" "+gender+" "+preNum, count*width, 525);
@@ -66,7 +67,7 @@ public class Names {
 			g.drawString(name+" "+gender+" "+preNum, count*width, (int)(Math.round(preNum*0.5)+24));
 			pre = (int)(Math.round(preNum*0.5)+24);
 		}
-		while(lineBase.hasNextInt()){
+		while(lineBase.hasNextInt()&&!hitMax){
 			num = lineBase.nextInt();
 			if(num==0){
 				g.drawString(name+" "+gender+" "+num, (count+1)*width, 525);
@@ -79,6 +80,9 @@ public class Names {
 			}
 			preNum=num;
 			count++;
+			if(count>=(decades-1)){
+				hitMax=true;
+			}
 		}
 	}
 	
