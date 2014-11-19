@@ -1,4 +1,15 @@
 package Homework;
+/*
+ * Yu Hou
+ * 11/18/2014
+ * CSE 142A
+ * TA: Chris R. Gores
+ * Assignment #7
+ * 
+ * This program convert the raw data to the a personality test result
+ * Everyone doing the test will be counted and classified into different
+ * personality.
+ */
 import java.util.*;
 import java.io.*;
 
@@ -16,10 +27,10 @@ public class Personality {
 		String fileOut = console.next();
 		Scanner input =  new Scanner(new File(fileIn));
 		PrintStream output = new PrintStream (new File(fileOut));
-		fileProcesses(input,output);
-
+		fileProcess(input,output);
 	}
 	
+	// The introduction of this program. 
 	public static void intro(){
 		System.out.println("This program processes a file of answers to the");
 		System.out.println("Keirsey Temperament Sorter.  It converts the");
@@ -29,13 +40,14 @@ public class Personality {
 		System.out.println();
 	}
 	
-	public static void fileProcesses(Scanner input,PrintStream output){
+	// Scan every line of the input file and make several different change
+	public static void fileProcess(Scanner input,PrintStream output){
 		while (input.hasNextLine()){
 			int[] A = new int[num4];
 			int[] B = new int[num4];
 			int [] percentage = new int [num4];
-			String name = input.nextLine();
-			String AB = input.nextLine().toLowerCase();
+			String name = input.nextLine(); // Scan the name
+			String AB = input.nextLine().toLowerCase(); // Scan the answer
 			count(AB,A,B);
 			percentage=percent(percentage,A,B);
 			String result = convert(percentage);
@@ -43,6 +55,8 @@ public class Personality {
 		}
 	}
 	
+	// count how many of A and B in the answer
+	// store them in a array
 	public static void count(String AB,int[] A,int[] B){
 		for(int i = 0;i < AB.length()/7;i++){
 			char EI = AB.charAt(i*7);
@@ -90,6 +104,7 @@ public class Personality {
 		}
 	}
 	
+	// compute the percentage of every dimension and return them into a array. 
 	public static int[] percent(int[] percentage,int[] A,int[] B){
 			for(int i = 0; i<percentage.length;i++){
 				percentage[i] = (int)Math.round(((double)B[i]/(A[i]+B[i]))*100);
@@ -97,8 +112,11 @@ public class Personality {
 			return percentage;
 	}
 	
+	// decided what personality for every dimension and output them into a String
 	public static String convert(int[] percentage){
 		String result = "";
+		// go though every one of the element in the array and sort them in to different
+		// Personality. 
 		for(int i = 0; i < percentage.length;i++){
 			if(percentage[i]>50){
 				if(i==0){
@@ -127,6 +145,7 @@ public class Personality {
 		return result;
 	}
 	
+	// print out the final result of everyone. 
 	public static void printOut(String name, String result, int[] percentage,PrintStream output){
 		output.println(name+": "+Arrays.toString(percentage)+" = "+result);
 	}
