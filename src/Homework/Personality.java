@@ -48,9 +48,9 @@ public class Personality {
 			int [] percentage = new int [num4];
 			String name = input.nextLine(); // Scan the name
 			String AB = input.nextLine().toLowerCase(); // Scan the answer
-			count(AB,A,B);
-			percentage=percent(percentage,A,B);
-			String result = convert(percentage);
+			count(AB,A,B); // count the number store them into the A&B array.
+			percentage=percent(percentage,A,B); 
+			String result = convert(percentage); 
 			printOut(name, result, percentage,output);
 		}
 	}
